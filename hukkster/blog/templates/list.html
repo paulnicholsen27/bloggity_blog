@@ -16,7 +16,7 @@
          <li><a href="#" class="button">Link 4</a></li>
         </ul>
       </div>
-      <h1>Blog <small>This is my blog. It's awesome.</small></h1>
+      <h1>{{author}}'s Blog</h1>
       <hr />
     </div>
   </div>
@@ -31,9 +31,13 @@
     <!-- Main Blog Content -->
     <div class="large-9 columns" role="content">
 
-    {% for post in posts %}
-      <p>{% include 'abbreviated_entry.html' %}</p>
-    {% endfor %}
+    {% if posts %}  
+      {% for post in posts %}
+        <p>{% include 'abbreviated_entry.html' %}</p>
+      {% endfor %}
+    {% else %}
+        <h3>This author has no posts to show.</h3>
+    {% endif %}
 
 
 
@@ -78,7 +82,6 @@
       <hr />
       <div class="row">
         <div class="large-6 columns">
-          <p>&copy; Copyright no one at all. Go to town.</p>
         </div>
         <div class="large-6 columns">
           <ul class="inline-list right">
